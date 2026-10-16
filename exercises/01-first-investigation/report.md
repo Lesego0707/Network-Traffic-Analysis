@@ -13,7 +13,7 @@
 ## Summary
 This investigation examines a packet capture containing suspicious network activity involving an internal endpoint in the natureforce.com network environment.
 The investigation identified a potential victim host, observed HTTP communication with an unfamiliar external domain, identified subsequent TLS connections, and observed an apparent Windows executable transfer from an external IP address over a non-standard port.
-These observations are consistent with a suspected malware delivery incident. Further validation is required to establish the executable's maliciousness, determine whether it was executed, and confirm the extent of the endpoint compromised
+These observations are consistent with a suspected malware delivery incident. Further validation is required to establish the executable's maliciousness, determine whether it was executed, and confirm the extent of the endpoint compromised.
 
 Identified Hosts
 
@@ -40,6 +40,7 @@ Filters used:
 ## kerberos.CNameString — inspect Kerberos client-name fields.
 Evidence:
 <img width="214" height="43" alt="host name" src="https://github.com/user-attachments/assets/194f4cc0-621d-4052-907c-77ad6bdfa48d" />
+
 <img width="178" height="17" alt="User name" src="https://github.com/user-attachments/assets/d5c6120c-4dbc-4037-b4fa-e83e8b313c4d" />
 
 ## Finding: The host under investigation was identified as DESKTOP-4VGYQX7, associated with IP address 10.10.1.128 and user account bdiaz.
@@ -54,6 +55,7 @@ The domain and request paths should be treated as suspicious indicators requirin
 Evidence:
 
 <img width="207" height="26" alt="http request" src="https://github.com/user-attachments/assets/62c73bcc-4f3e-4b0f-93be-4c91ac1e6656" />
+
 <img width="457" height="29" alt="html webpage" src="https://github.com/user-attachments/assets/d60fd9c1-3fdf-4be7-9ea8-5221fcda444c" />
 
 ## Finding: The victim host communicated with an unfamiliar external website before the other suspicious connections observed in the capture.
@@ -66,6 +68,7 @@ tls.handshake.type == 1 && ip.src == 10.10.1.128
 This filter isolates TLS ClientHello packets originating from the victim IP address. A ClientHello indicates an attempt to initiate a TLS handshake.
 The observed TLS activity followed the earlier HTTP requests. This temporal relationship is relevant to the investigation, although the handshake alone does not establish the purpose or maliciousness of the connection.
 Further investigation of destination IP addresses, DNS activity, TLS metadata, and the surrounding packet timeline would help determine whether these connections were associated with the suspected incident.
+
 Evidence:
 
 <img width="419" height="109" alt="TLS handshake" src="https://github.com/user-attachments/assets/68c71fe7-d0b9-4dfe-9147-eae59ba299aa" />
@@ -89,6 +92,7 @@ Reported destination port: 9000 — verify against the packet details.
 Observed artifact: Windows executable (.exe)
 
 Evidence:
+
 <img width="531" height="15" alt="port 9000 ( exe file)" src="https://github.com/user-attachments/assets/a8f0e942-fbc0-42ea-a924-f9c4a5e9ea79" />
 
 ##Finding: The capture contains evidence of an apparent executable transfer involving an external host. The file should be extracted safely, hashed, and assessed using appropriate malware-analysis procedures.
@@ -130,7 +134,7 @@ Evidence:
 
 -Improve my confidence in documenting findings and distinguishing confirmed evidence from assumptions.
 
-Reflection: I was unable to independently verify the executable's SHA-256 hash during this investigation. This highlighted the need to strengthen my file-identification and threat-intelligence research skills.
+Reflection: I was unable to independently verify the executable's SHA-256 hash during this investigation. This highlighted the need to strengthen my file-identification and threat intelligence research skills.
 
 ## References
 -Malware-Traffic-Analysis.net
