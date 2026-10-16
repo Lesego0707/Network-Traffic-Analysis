@@ -1,9 +1,13 @@
 ## Network Traffic Analysis 
 
 ## Exercise Information
+
 -Exercise name: Malware analysis 2026-10-01
+
 -Exercise source: Malware-Traffic-Analysis.net
+
 -Analysis date: 2026-10-14
+
 -Tools: Wireshark and Virus Total
 
 ## Summary
