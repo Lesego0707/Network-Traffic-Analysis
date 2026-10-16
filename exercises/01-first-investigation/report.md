@@ -78,7 +78,7 @@ Evidence:
 
 Further analysis revealed communication between the victim host and the external IP address 107.175.82.242 over a reported non-standard port.
 The packet capture appeared to contain a transfer of a Windows executable (.exe) over this connection.
-The transfer is a significant investigative lead because executable downloads can represent malware delivery. However, the file's contents, SHA-256 hash, and reputation must be examined before its maliciousness can be confirmed.
+The transfer is a significant investigative lead because executable downloads can represent malware delivery.
 
 Investigation points:
 
