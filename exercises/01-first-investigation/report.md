@@ -76,7 +76,8 @@ Evidence:
 
 <img width="419" height="109" alt="TLS handshake" src="https://github.com/user-attachments/assets/68c71fe7-d0b9-4dfe-9147-eae59ba299aa" />
 
-##Finding: The victim initiated TLS handshakes after the observed HTTP activity. The purpose of the encrypted connections requires further investigation.
+
+## Finding: The victim initiated TLS handshakes after the observed HTTP activity. The purpose of the encrypted connections requires further investigation.
 
 ## Step 4: Investigating the Executable Transfer
 
