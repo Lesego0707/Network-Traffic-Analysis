@@ -92,7 +92,9 @@ Observed artifact: Windows executable (.exe)
 
 Evidence:
 
+
 <img width="531" height="15" alt="port 9000 ( exe file)" src="https://github.com/user-attachments/assets/a8f0e942-fbc0-42ea-a924-f9c4a5e9ea79" />
+
 
 ##Finding: The capture contains evidence of an apparent executable transfer involving an external host. The file should be extracted safely, hashed, and assessed using appropriate malware-analysis procedures.
 
@@ -113,9 +115,9 @@ Evidence:
 -Port:9000 - Reported port associated with the transfer, verify against the capture
 
 
-## Lesson Learned
+## Lesson learned
 
-- Learned to use Wireshark endpoints and protocol filters to identify hosts and investigate suspicious network activity.
+-Learned to use Wireshark endpoints and protocol filters to identify hosts and investigate suspicious network activity.
   
 -Improved my understanding of HTTP requests, TLS handshakes, and analysing network events chronologically.
 
