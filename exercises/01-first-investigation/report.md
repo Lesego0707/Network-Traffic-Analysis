@@ -64,9 +64,10 @@ Evidence:
 ## Step 3:Examining Subsequent TLS Connections
 
 After the HTTP activity, I investigated subsequent encrypted network connections originating from the suspected victim.
+
 Filter used:
 
-##tls.handshake.type == 1 && ip.src == 10.10.1.128
+tls.handshake.type == 1 && ip.src == 10.10.1.128
 
 This filter isolates TLS ClientHello packets originating from the victim IP address. A ClientHello indicates an attempt to initiate a TLS handshake.
 The observed TLS activity followed the earlier HTTP requests. This temporal relationship is relevant to the investigation, although the handshake alone does not establish the purpose or maliciousness of the connection.
@@ -95,6 +96,7 @@ Reported destination port: 9000 — verify against the packet details.
 Observed artifact: Windows executable (.exe)
 
 Evidence:
+
 
 
 <img width="531" height="15" alt="port 9000 ( exe file)" src="https://github.com/user-attachments/assets/a8f0e942-fbc0-42ea-a924-f9c4a5e9ea79" />
