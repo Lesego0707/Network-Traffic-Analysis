@@ -52,6 +52,7 @@ Filter used:http.request
 The investigation revealed an HTTP request to the unfamiliar domain holtandberyl.com. The server returned an HTML webpage, and the observed traffic included requests involving the paths /pre and /CRV.
 This sequence warranted further investigation because it preceded additional suspicious network activity.
 The domain and request paths should be treated as suspicious indicators requiring validation rather than proof of malicious activity on their own.
+
 Evidence:
 
 <img width="207" height="26" alt="http request" src="https://github.com/user-attachments/assets/62c73bcc-4f3e-4b0f-93be-4c91ac1e6656" />
@@ -63,8 +64,11 @@ Evidence:
 ## Step 3:Examining Subsequent TLS Connections
 
 After the HTTP activity, I investigated subsequent encrypted network connections originating from the suspected victim.
+
 Filter used:
+
 tls.handshake.type == 1 && ip.src == 10.10.1.128
+
 This filter isolates TLS ClientHello packets originating from the victim IP address. A ClientHello indicates an attempt to initiate a TLS handshake.
 The observed TLS activity followed the earlier HTTP requests. This temporal relationship is relevant to the investigation, although the handshake alone does not establish the purpose or maliciousness of the connection.
 Further investigation of destination IP addresses, DNS activity, TLS metadata, and the surrounding packet timeline would help determine whether these connections were associated with the suspected incident.
