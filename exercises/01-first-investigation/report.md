@@ -40,7 +40,6 @@ Filters used:
 ## kerberos.CNameString — inspect Kerberos client-name fields.
 Evidence:
 <img width="214" height="43" alt="host name" src="https://github.com/user-attachments/assets/194f4cc0-621d-4052-907c-77ad6bdfa48d" />
-
 <img width="178" height="17" alt="User name" src="https://github.com/user-attachments/assets/d5c6120c-4dbc-4037-b4fa-e83e8b313c4d" />
 
 ## Finding: The host under investigation was identified as DESKTOP-4VGYQX7, associated with IP address 10.10.1.128 and user account bdiaz.
