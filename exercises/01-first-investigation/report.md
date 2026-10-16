@@ -87,13 +87,13 @@ The transfer is a significant investigative lead because executable downloads ca
 
 Investigation points:
 
-Source host: 10.10.1.128
+-Source host: 10.10.1.128
 
-External IP address: 107.175.82.242
+-External IP address: 107.175.82.242
 
-Reported destination port: 9000 — verify against the packet details.
+-Reported destination port: 9000 - verify against the packet details.
 
-Observed artifact: Windows executable (.exe)
+-Observed artifact: Windows executable (.exe)
 
 Evidence:
 
