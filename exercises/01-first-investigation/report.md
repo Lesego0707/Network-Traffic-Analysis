@@ -64,10 +64,9 @@ Evidence:
 ## Step 3:Examining Subsequent TLS Connections
 
 After the HTTP activity, I investigated subsequent encrypted network connections originating from the suspected victim.
-
 Filter used:
 
-tls.handshake.type == 1 && ip.src == 10.10.1.128
+##tls.handshake.type == 1 && ip.src == 10.10.1.128
 
 This filter isolates TLS ClientHello packets originating from the victim IP address. A ClientHello indicates an attempt to initiate a TLS handshake.
 The observed TLS activity followed the earlier HTTP requests. This temporal relationship is relevant to the investigation, although the handshake alone does not establish the purpose or maliciousness of the connection.
