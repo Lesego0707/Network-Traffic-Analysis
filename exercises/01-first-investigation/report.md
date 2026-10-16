@@ -109,7 +109,7 @@ Evidence:
 
 -Hostname: DESKTOP-4VGYQX7 - Host associated with the investigation
 
--User account :bdiaz - Account associated with the host
+-User account : bdiaz - Account associated with the host
 
 -Domain: holtandberyl.com - Suspicious domain observed in HTTP traffic
 
@@ -117,7 +117,7 @@ Evidence:
 
 -IP address: 107.175.82.242 - External host involved in the reported executable transfer
 
--Port:9000 - Reported port associated with the transfer, verify against the capture
+-Port: 9000 - Reported port associated with the transfer, verify against the capture
 
 
 ## Lesson learned
@@ -140,7 +140,7 @@ Evidence:
 
 -Improve my confidence in documenting findings and distinguishing confirmed evidence from assumptions.
 
-Reflection: I was unable to independently verify the executable's SHA-256 hash during this investigation. This highlighted the need to strengthen my file-identification and threat intelligence research skills.
+## Reflection: I was unable to independently verify the executable's SHA-256 hash during this investigation. This highlighted the need to strengthen my file-identification and threat intelligence research skills.
 
 ## References
 
