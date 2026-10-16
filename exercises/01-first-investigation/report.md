@@ -16,10 +16,15 @@ The investigation identified a potential victim host, observed HTTP communicatio
 These observations are consistent with a suspected malware delivery incident. Further validation is required to establish the executable's maliciousness, determine whether it was executed, and confirm the extent of the endpoint compromised
 
 Identified Hosts
+
 -Victim IP Address: 10.10.1.128
+
 -Victim Mac address: 00:22:fb:ec:7e:e7
+
 -Victim Hostname: DESKTOP-4VGYQX7
+
 -User account name of the victim: bdiaz
+
 -SHA-256 hash of the Windows EXE file sent from 107.175.82.242: 
 
 Step-by-step investigations.
@@ -29,6 +34,7 @@ Step-by-step investigations.
 I began by examining the IPv4 endpoints in Wireshark under Statistics → Endpoints. I reviewed the communicating hosts and their traffic volumes to identify endpoints that warranted further investigation.
 The internal IP address 10.10.1.128 stood out as a host of interest based on the observed network activity.
 I then used DHCP traffic to investigate the host's network configuration and identify its hostname. Kerberos authentication traffic provided additional information associated with the user account.
+
 Filters used:
 ## dhcp — inspect DHCP messages.
 ## kerberos.CNameString — inspect Kerberos client-name fields.
@@ -69,11 +75,17 @@ Evidence:
 Further analysis revealed communication between the victim host and the external IP address 107.175.82.242 over a reported non-standard port.
 The packet capture appeared to contain a transfer of a Windows executable (.exe) over this connection.
 The transfer is a significant investigative lead because executable downloads can represent malware delivery. However, the file's contents, SHA-256 hash, and reputation must be examined before its maliciousness can be confirmed.
+
 Investigation points:
+
 Source host: 10.10.1.128
+
 External IP address: 107.175.82.242
+
 Reported destination port: 9000 — verify against the packet details.
+
 Observed artifact: Windows executable (.exe)
+
 Evidence:
 <img width="531" height="15" alt="port 9000 ( exe file)" src="https://github.com/user-attachments/assets/a8f0e942-fbc0-42ea-a924-f9c4a5e9ea79" />
 
@@ -82,25 +94,38 @@ Evidence:
 ## Indicators of Compromise (IoCs)
 
 -Internal IP: 10.10.1.128 - Suspected victim host
+
 -Hostname: DESKTOP-4VGYQX7 - Host associated with the investigation
+
 -User account :bdiaz - Account associated with the host
+
 -Domain: holtandberyl.com - Suspicious domain observed in HTTP traffic
+
 -IP address: 35.170.55.9 - Reported IP associated with the suspicious domain; verify using DNS evidence
+
 -IP address: 107.175.82.242 - External host involved in the reported executable transfer
+
 -Port:9000 - Reported port associated with the transfer, verify against the capture
+
 
 ## Lesson Learned
 
 - Learned to use Wireshark endpoints and protocol filters to identify hosts and investigate suspicious network activity.
+  
 -Improved my understanding of HTTP requests, TLS handshakes, and analysing network events chronologically.
+
 -Learned that suspicious file transfers and network indicators require further validation before confirming malicious activity.
+
 -Recognised the importance of evidence-based reporting and safe malware handling.
 
-9. Areas for Improvement
+ ## Areas for Improvement
 
 -Improve my ability to identify and validate file hashes and indicators of compromise (IOCs).
+
 -Develop stronger skills in analysing DNS, TLS, and executable-transfer traffic.
+
 -Practise correlating packet evidence with threat-intelligence sources.
+
 -Improve my confidence in documenting findings and distinguishing confirmed evidence from assumptions.
 
 Reflection: I was unable to independently verify the executable's SHA-256 hash during this investigation. This highlighted the need to strengthen my file-identification and threat-intelligence research skills.
