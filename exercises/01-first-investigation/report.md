@@ -52,6 +52,7 @@ The investigation revealed an HTTP request to the unfamiliar domain holtandberyl
 This sequence warranted further investigation because it preceded additional suspicious network activity.
 The domain and request paths should be treated as suspicious indicators requiring validation rather than proof of malicious activity on their own.
 Evidence:
+
 <img width="207" height="26" alt="http request" src="https://github.com/user-attachments/assets/62c73bcc-4f3e-4b0f-93be-4c91ac1e6656" />
 <img width="457" height="29" alt="html webpage" src="https://github.com/user-attachments/assets/d60fd9c1-3fdf-4be7-9ea8-5221fcda444c" />
 
@@ -66,6 +67,7 @@ This filter isolates TLS ClientHello packets originating from the victim IP addr
 The observed TLS activity followed the earlier HTTP requests. This temporal relationship is relevant to the investigation, although the handshake alone does not establish the purpose or maliciousness of the connection.
 Further investigation of destination IP addresses, DNS activity, TLS metadata, and the surrounding packet timeline would help determine whether these connections were associated with the suspected incident.
 Evidence:
+
 <img width="419" height="109" alt="TLS handshake" src="https://github.com/user-attachments/assets/68c71fe7-d0b9-4dfe-9147-eae59ba299aa" />
 
 ## Finding: The victim initiated TLS handshakes after the observed HTTP activity. The purpose of the encrypted connections requires further investigation.
@@ -132,7 +134,9 @@ Reflection: I was unable to independently verify the executable's SHA-256 hash d
 
 ## References
 -Malware-Traffic-Analysis.net
+
 -Wireshark User's Guide
+
 -VirusTotal
 
 
