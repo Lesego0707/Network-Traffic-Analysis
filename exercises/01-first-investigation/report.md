@@ -101,8 +101,7 @@ Evidence:
 
 <img width="531" height="15" alt="port 9000 ( exe file)" src="https://github.com/user-attachments/assets/a8f0e942-fbc0-42ea-a924-f9c4a5e9ea79" />
 
-
-##Finding: The capture contains evidence of an apparent executable transfer involving an external host. The file should be extracted safely, hashed, and assessed using appropriate malware-analysis procedures.
+##Finding:The capture contains evidence of an apparent executable transfer involving an external host. The file should be extracted safely, hashed, and assessed using appropriate malware-analysis procedures.
 
 ## Indicators of Compromise (IoCs)
 
