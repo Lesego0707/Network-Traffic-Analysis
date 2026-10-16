@@ -15,7 +15,7 @@ This investigation examines a packet capture containing suspicious network activ
 The investigation identified a potential victim host, observed HTTP communication with an unfamiliar external domain, identified subsequent TLS connections, and observed an apparent Windows executable transfer from an external IP address over a non-standard port.
 These observations are consistent with a suspected malware delivery incident. Further validation is required to establish the executable's maliciousness, determine whether it was executed, and confirm the extent of the endpoint compromised.
 
-Identified Hosts
+## Identified Hosts
 
 -Victim IP Address: 10.10.1.128
 
@@ -27,7 +27,6 @@ Identified Hosts
 
 -SHA-256 hash of the Windows EXE file sent from 107.175.82.242: 
 
-Step-by-step investigations.
 
 ## Step 1: Identifying the Potential Victim
 
