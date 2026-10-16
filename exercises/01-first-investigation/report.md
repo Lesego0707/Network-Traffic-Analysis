@@ -25,7 +25,7 @@ These observations are consistent with a suspected malware delivery incident. Fu
 
 -User account name of the victim: bdiaz
 
--SHA-256 hash of the Windows EXE file sent from 107.175.82.242: 
+-SHA-256 hash: Pending verification. The file hash could not be independently confirmed during this investigation.
 
 
 ## Step 1: Identifying the Potential Victim
