@@ -49,7 +49,7 @@ Evidence:
 
 I filtered the capture for HTTP requests to investigate the web activity preceding the subsequent network connections.
 Filter used:http.request
-The investigation revealed an HTTP request to the unfamiliar domain holtandberyl.com. The server returned an HTML webpage, and the observed traffic included requests involving the paths /pre and /CRV.
+The investigation revealed an HTTP request to the unfamiliar domain holtandberyl.com. The server returned an HTML webpage, and the observed traffic included requests involving the paths/prw and /CRV.
 This sequence warranted further investigation because it preceded additional suspicious network activity.
 The domain and request paths should be treated as suspicious indicators requiring validation rather than proof of malicious activity on their own.
 
