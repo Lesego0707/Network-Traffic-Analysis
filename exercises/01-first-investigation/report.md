@@ -77,7 +77,7 @@ Evidence:
 
 <img width="419" height="109" alt="TLS handshake" src="https://github.com/user-attachments/assets/68c71fe7-d0b9-4dfe-9147-eae59ba299aa" />
 
-## Finding: The victim initiated TLS handshakes after the observed HTTP activity. The purpose of the encrypted connections requires further investigation.
+##Finding: The victim initiated TLS handshakes after the observed HTTP activity. The purpose of the encrypted connections requires further investigation.
 
 ## Step 4: Investigating the Executable Transfer
 
@@ -101,7 +101,7 @@ Evidence:
 
 <img width="531" height="15" alt="port 9000 ( exe file)" src="https://github.com/user-attachments/assets/a8f0e942-fbc0-42ea-a924-f9c4a5e9ea79" />
 
-##Finding:The capture contains evidence of an apparent executable transfer involving an external host. The file should be extracted safely, hashed, and assessed using appropriate malware-analysis procedures.
+## Finding: The capture contains evidence of an apparent executable transfer involving an external host. The file should be extracted safely, hashed, and assessed using appropriate malware-analysis procedures.
 
 ## Indicators of Compromise (IoCs)
 
@@ -143,6 +143,7 @@ Evidence:
 Reflection: I was unable to independently verify the executable's SHA-256 hash during this investigation. This highlighted the need to strengthen my file-identification and threat intelligence research skills.
 
 ## References
+
 -Malware-Traffic-Analysis.net
 
 -Wireshark User's Guide
