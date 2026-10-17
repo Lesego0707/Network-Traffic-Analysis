@@ -44,7 +44,7 @@ I also identified areas for improvement, including file-hash verification and fu
 
 ## Project Files
 
-- [Read the Investigation Report](./exercise/01-first-investigation/report.md)
+- [Read the Investigation Report](./report.md)
 - **Evidence screenshots:** Screenshots supporting the investigation findings.
 
 ## Safety and Scope
