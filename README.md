@@ -22,7 +22,7 @@ As SOC Analyst, I created this project to develop my network investigation, thre
 
 ## Investigation Summary
 
-During the investigation, I identified an internal endpoint and examined its network communications. I investigated HTTP requests to an unfamiliar domain, following TLS handshake activity, and an apparent Windows executable transfer involving an external IP address.
+During the investigation, I identified an internal endpoint and examined its network communications. I investigated HTTP requests to an unfamiliar domain, following TLS handshake activity, and an alleged Windows executable transfer involving an external IP address.
 
 These observations warranted further investigation. The executable's SHA-256 hash remains pending verification, and the available network evidence does not independently establish whether the file was executed or confirm the full extent of any compromise.
 
@@ -38,7 +38,7 @@ These observations warranted further investigation. The executable's SHA-256 has
 
 ## Key Learning Outcomes
 
-This project strengthened my understanding of analysing network events chronologically, validating suspicious indicators, distinguishing observations from assumptions, and documenting investigation limitations.
+This project strengthened my understanding of analysing network events sequentially, validating suspicious indicators, distinguishing observations from assumptions, and documenting investigation limitations.
 
 I also identified areas for improvement, including file-hash verification and further analysis of DNS and encrypted traffic.
 
@@ -46,10 +46,6 @@ I also identified areas for improvement, including file-hash verification and fu
 
 - Investigation report: Detailed methodology, findings, IOCs, and lessons learned are documented in the report within this repository.
 - Evidence screenshots: Screenshots supporting the investigation findings.
-
-## Safety and Scope
-
-This project is for educational and defensive cybersecurity learning. Suspicious activity is described cautiously, and indicators are not treated as confirmed malicious without sufficient supporting evidence.
 
 ## References
 
