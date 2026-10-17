@@ -44,7 +44,7 @@ I also identified areas for improvement, including file-hash verification and fu
 
 ## Project Files
 
-- [Read the Investigation Report](./report.md)
+- Investigation report: Detailed methodology, findings, IOCs, and lessons learned are documented in the report within this repository.
 - **Evidence screenshots:** Screenshots supporting the investigation findings.
 
 ## Safety and Scope
