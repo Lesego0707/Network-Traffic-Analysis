@@ -10,7 +10,7 @@ As SOC Analyst, I created this project to develop my network investigation, thre
 
 - Identify the endpoint of interest within the captured network traffic.
 - Analyse HTTP requests and TLS handshake activity.
-- Investigate an apparent executable file transfer.
+- Investigate an alleged executable file transfer.
 - Document potential indicators of compromise (IOCs).
 - Practise evidence-based investigation and reporting.
 
@@ -45,7 +45,7 @@ I also identified areas for improvement, including file-hash verification and fu
 ## Project Files
 
 - Investigation report: Detailed methodology, findings, IOCs, and lessons learned are documented in the report within this repository.
-- **Evidence screenshots:** Screenshots supporting the investigation findings.
+- Evidence screenshots: Screenshots supporting the investigation findings.
 
 ## Safety and Scope
 
