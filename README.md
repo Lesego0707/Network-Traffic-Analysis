@@ -22,7 +22,7 @@ As SOC Analyst, I created this project to develop my network investigation, thre
 
 ## Investigation Summary
 
-During the investigation, I identified an internal endpoint and examined its network communications. I investigated HTTP requests to an unfamiliar domain, subsequent TLS handshake activity, and an apparent Windows executable transfer involving an external IP address.
+During the investigation, I identified an internal endpoint and examined its network communications. I investigated HTTP requests to an unfamiliar domain, following TLS handshake activity, and an apparent Windows executable transfer involving an external IP address.
 
 These observations warranted further investigation. The executable's SHA-256 hash remains pending verification, and the available network evidence does not independently establish whether the file was executed or confirm the full extent of any compromise.
 
