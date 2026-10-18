@@ -1,4 +1,4 @@
-## Wireshark Malware Traffic Analysis
+## Network Traffic Analysis
 
 ## Project Overview
 
