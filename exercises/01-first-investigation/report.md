@@ -30,9 +30,9 @@ These observations are consistent with a suspected malware delivery incident. Fu
 
 ## Step 1: Identifying the Potential Victim
 
-I began by examining the IPv4 endpoints in Wireshark under Statistics → Endpoints. I reviewed the communicating hosts and their traffic volumes to identify endpoints that warranted further investigation.
-The internal IP address 10.10.1.128 stood out as a host of interest based on the observed network activity.
-I then used DHCP traffic to investigate the host's network configuration and identify its hostname. Kerberos authentication traffic provided additional information associated with the user account.
+**My Observation:**
+
+I used Wireshark's Endpoints statistics to identify a host that stood out for further investigation. By examining the available DHCP and Kerberos traffic, I was able to identify the host as DESKTOP-4VGYQX7, with IP address 10.10.1.128 and the associated user account bdiaz.
 
 Filters used:
 ## dhcp — inspect DHCP messages.
@@ -46,11 +46,9 @@ Evidence:
 
  ## Step 2: Investigating the Initial HTTP Activity
 
-I filtered the capture for HTTP requests to investigate the web activity preceding the subsequent network connections.
-Filter used:http.request
-The investigation revealed an HTTP request to the unfamiliar domain holtandberyl.com. The server returned an HTML webpage, and the observed traffic included requests involving the paths/prw and /CRV.
-This sequence warranted further investigation because it preceded additional suspicious network activity.
-The domain and request paths should be treated as suspicious indicators requiring validation rather than proof of malicious activity on their own.
+**My Observation:**
+
+I noticed that the identified host made an HTTP request to holtandberyl.com. The domain was unfamiliar in the context of the investigation, so I considered it worth looking into. I also noticed requests involving the paths /prw and /CRV. These observations raised questions about the host's web activity, but did not prove that the domain was malicious.
 
 Evidence:
 
@@ -62,28 +60,21 @@ Evidence:
 
 ## Step 3:Examining Subsequent TLS Connections
 
-After the HTTP activity, I investigated subsequent encrypted network connections originating from the suspected victim.
+**My Observation:**
 
-Filter used:
-
-tls.handshake.type == 1 && ip.src == 10.10.1.128
-
-This filter isolates TLS ClientHello packets originating from the victim IP address. A ClientHello indicates an attempt to initiate a TLS handshake.
-The observed TLS activity followed the earlier HTTP requests. This temporal relationship is relevant to the investigation, although the handshake alone does not establish the purpose or maliciousness of the connection.
-Further investigation of destination IP addresses, DNS activity, TLS metadata, and the surrounding packet timeline would help determine whether these connections were associated with the suspected incident.
+After examining the HTTP activity, I looked at the TLS connections originating from the suspected victim. I found ClientHello packets showing that the host attempted to establish TLS connections after the earlier HTTP requests. This helped me understand the sequence of network activity, although I could not determine what was communicated through the encrypted connections from the handshake information alone.
 
 Evidence:
 
 <img width="419" height="109" alt="TLS handshake" src="https://github.com/user-attachments/assets/68c71fe7-d0b9-4dfe-9147-eae59ba299aa" />
 
-
 ## Finding: The victim initiated TLS handshakes after the observed HTTP activity.
 
 ## Step 4: Investigating the Executable Transfer
 
-Further analysis revealed communication between the victim host and the external IP address 107.175.82.242 over a reported non-standard port.
-The packet capture appeared to contain a transfer of a Windows executable (.exe) over this connection.
-The transfer is a significant investigative lead because executable downloads can represent malware delivery.
+**My Observation:**
+
+The part that caught my attention most was the apparent transfer of a Windows executable between the victim host and the external IP address 107.175.82.242 over the reported port 9000. This raised concerns because executable files can be used to deliver malware. However, I could not establish from the available evidence whether the file was executed or whether the endpoint was successfully compromised.
 
 Investigation points:
 
@@ -96,8 +87,6 @@ Investigation points:
 -Observed artifact: Windows executable (.exe)
 
 Evidence:
-
-
 
 <img width="531" height="15" alt="port 9000 ( exe file)" src="https://github.com/user-attachments/assets/a8f0e942-fbc0-42ea-a924-f9c4a5e9ea79" />
 
@@ -120,25 +109,37 @@ Evidence:
 -Port: 9000 - Reported port associated with the transfer, verify against the capture
 
 
+## Analyst Conclusion
+
+Based on my investigation of the packet capture, I identified network activity that raised concerns about a possible malware delivery incident.
+
+The main findings included HTTP communication with an unfamiliar external domain, subsequent TLS connection attempts, and an apparent Windows executable transfer involving the external IP address 107.175.82.242 over the reported port 9000.
+
+These findings gave me reason to treat the activity as suspicious and worthy of further investigation. However, I could not confirm whether the executable was malicious, whether it was executed, or whether the endpoint was compromised.
+
+I would recommend further examination of the transferred file, verification of its SHA-256 hash, and additional endpoint investigation before making a final determination.
+
+This investigation helped me understand how different pieces of network evidence can be examined together to build a picture of potentially suspicious activity.
+
+
 ## Lesson learned
 
--Learned to use Wireshark endpoints and protocol filters to identify hosts and investigate suspicious network activity.
-  
--Improved my understanding of HTTP requests, TLS handshakes, and analysing network events chronologically.
+This investigation helped me become more comfortable using Wireshark to examine network traffic. I learned how to use the Endpoints statistics to identify a host of interest and how DHCP and Kerberos traffic can provide useful information about a device and its associated user account.
 
--Learned that suspicious file transfers and network indicators require further validation before confirming malicious activity.
+I also gained a better understanding of HTTP requests and how to identify the domains a device communicates with. Examining the TLS ClientHello packets helped me understand how to follow connection attempts and why encrypted traffic can limit what an analyst is able to see.
 
--Recognised the importance of evidence-based reporting and safe malware handling.
+One of the most important things I learned was that an apparent executable transfer deserves attention, but it does not automatically mean that malware was successfully installed or executed. I had to be careful not to make conclusions that the packet capture could not support.
+
+I also faced a challenge when trying to independently verify the executable's SHA-256 hash. I learned that identifying a suspicious file is only part of the investigation; being able to verify and document its hash is also important.
+
+Overall, this exercise taught me to approach network investigations step by step, pay attention to the available evidence, and recognise when further investigation is needed before reaching a conclusion.
 
  ## Areas for Improvement
 
--Improve my ability to identify and validate file hashes and indicators of compromise (IOCs).
-
--Develop stronger skills in analysing DNS, TLS, and executable-transfer traffic.
-
--Practise correlating packet evidence with threat-intelligence sources.
-
--Improve my confidence in documenting findings and distinguishing confirmed evidence from assumptions.
+- Practise extracting files from packet captures and independently verifying their SHA-256 hashes using safe methods.
+- Improve my understanding of DNS traffic and TLS connection analysis.
+- Gain more experience examining suspicious file transfers and researching relevant indicators.
+- Continue improving my confidence in documenting findings and separating confirmed evidence from assumptions.
 
 ## Reflection: I was unable to independently verify the executable's SHA-256 hash during this investigation. This highlighted the need to strengthen my file-identification and threat intelligence research skills.
 
