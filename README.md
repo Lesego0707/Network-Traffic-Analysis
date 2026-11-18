@@ -2,9 +2,9 @@
 
 ## Project Overview
 
-This project documents my first practical network traffic investigation using Wireshark. The investigation is based on a training exercise from Malware-Traffic-Analysis.net and focuses on identifying suspicious network activity through packet analysis.
+This project documents my first practical network traffic investigation using Wireshark. The investigation is based on a training exercise from Malware-Traffic-Analysis.net and focuses on examining network traffic to identify potentially suspicious activity.
 
-As SOC Analyst, I created this project to develop my network investigation, threat identification, and technical reporting skills.
+As an aspiring SOC analyst, I completed this exercise to develop my understanding of packet analysis, endpoint identification, suspicious network communications, and evidence-based investigation.
 
 ## Objectives
 
@@ -22,9 +22,11 @@ As SOC Analyst, I created this project to develop my network investigation, thre
 
 ## Investigation Summary
 
-During the investigation, I identified an internal endpoint and examined its network communications. I investigated HTTP requests to an unfamiliar domain, following TLS handshake activity, and an alleged Windows executable transfer involving an external IP address.
+During this investigation, I used Wireshark to identify an endpoint of interest and examine its network communications.
 
-These observations warranted further investigation. The executable's SHA-256 hash remains pending verification, and the available network evidence does not independently establish whether the file was executed or confirm the full extent of any compromise.
+I investigated HTTP requests to an unfamiliar domain, reviewed TLS handshake activity, and examined network evidence relating to a suspicious Windows executable transfer involving an external IP address.
+
+The findings raised concerns about potentially malicious activity. However, the available network evidence alone could not confirm whether the executable was downloaded and executed or establish the full extent of the suspected compromise.
 
 ## Skills Demonstrated
 
@@ -36,11 +38,15 @@ These observations warranted further investigation. The executable's SHA-256 has
 - Threat-intelligence research
 - Technical reporting and evidence handling
 
-## Key Learning Outcomes
+## Lesson Learned
 
-This project strengthened my understanding of analysing network events sequentially, validating suspicious indicators, distinguishing observations from assumptions, and documenting investigation limitations.
+Through this investigation, I learned how to use Wireshark to examine network traffic and identify an endpoint of interest within a PCAP file.
 
-I also identified areas for improvement, including file-hash verification and further analysis of DNS and encrypted traffic.
+I gained a better understanding of how HTTP requests, TLS handshake activity, IP addresses, and network conversations can help an analyst investigate suspicious communications.
+
+I also learned that identifying a suspicious file transfer does not automatically prove that a file was executed or that a system was compromised. Findings need to be supported by available evidence.
+
+The exercise showed me areas where I still need to improve, particularly verifying file hashes and developing my understanding of DNS and encrypted traffic analysis.
 
 ## Project Files
 
