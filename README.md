@@ -35,7 +35,7 @@ The findings raised concerns about potentially malicious activity. However, the 
 - Endpoint identification
 - HTTP and TLS traffic investigation
 - IOC documentation
-- Threat-intelligence research
+- Basic threat-intelligence
 - Technical reporting and evidence handling
 
 ## Lesson Learned
